@@ -1,29 +1,51 @@
 var basePrice = 9.00
+var newMovies = ["Revenant", "Hidden Figures"]
 
-function Ticket(movieName, movieTime, movieAge, userAge) {
+function Ticket(movieName, movieTime, userAge) {
   this.movieName = movieName;
   this.movieTime = movieTime;
-  this.movieAge = movieAge;
   this.userAge = userAge;
-  this.movieValue = basePrice;
+  var setMovieAge = function(name) {
+    var n1 = 1;
+    for (var i = 0; i < newMovies.length; i++) {
+      if (name === newMovies[i]) {
+        n1 = 0;
+      }
+    }
+    return n1;
+  };
+
+  this.movieAge = setMovieAge(this.movieName);
+  var setMovieValue = function(time, mAge, uAge) {
+    var mValue = basePrice;
+    if (time >= 1700) {
+      mValue += 2
+    }
+    if (mAge === 0) {
+      mValue += 1.5
+    }
+    if (uAge >= 13 && uAge <= 54) {
+      mValue += 1.5
+    }
+    return mValue;
+  };
+  this.movieValue = setMovieValue(movieTime, this.movieAge, userAge);
+
 }
 
-Ticket.prototype.getMovieValue = function (/*movieAge, movieTime, userAge*/) {
-  if (this.movieTime >= 1700){
-    this.movieValue += 2
-  }
-  if (this.movieAge === 0) {
-    this.movieValue += 1.5
-  }
-  if (this.userAge >= 13 && this.userAge <= 54) {
-    this.movieValue += 1.5
-  }
-  return this.movieValue
-};
+//Delete if function works in constructor
+// Ticket.prototype.setMovieAge = function() {
+//   for (var i = 0; i < newMovies.length; i++){
+//     if (this.movieName === newMovies[i]){
+//       this.movieAge === 0;
+//     }
+//   }
+// };
 
-var tix = new Ticket("test",1600,1,50);
 
-$(function(){
-  event.prevent(default);
-  
+var tix = new Ticket("test", 1600, 1, 50);
+
+$(function() {
+  event.preventdefault();
+  var newTicket = new Ticket()
 });
