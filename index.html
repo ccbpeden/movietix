@@ -11,24 +11,24 @@
   <body>
     <div class="container">
       <div class="form">
-        <select name="movies">
+        <select name="movies" id="mName">
           <option class="movie-select" value="Princess Bride">The Princess Bride</option>
           <option class="movie-select" value="Revenant">Revenant</option>
           <option class="movie-select" value="Hidden Figures">Hidden Figures</option>
           <option class="movie-select" value="Mystery Men">Mystery Men</option>
         </select>
-        <input type="submit">
-      </div>
-      <div class="form">
-        <select name="movie-time">
-          <option value="0900">9 AM</option>
-          <option value="1100">11 AM</option>
-          <option value="1500">3 PM</option>
-          <option value="1800">6 PM</option>
+        <select name="movie-time" id="mTime">
+          <option class="movie-time" value="0900">9 AM</option>
+          <option class="movie-time" value="1100">11 AM</option>
+          <option class="movie-time" value="1500">3 PM</option>
+          <option class="movie-time" value="1800">6 PM</option>
         </select>
-        <input type="submit">
+        <input type="text" name="user-age" class="user-age" value="">
+        <input type="button" id="submitbutton" value="submit">
       </div>
-
+      <div class="output">
+        <p id="putStuffHere"></p>
+      </div>
     </div>
   </body>
 </html>
